@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class ParserNew {
     private Map<String, Integer> hasMap = new HashMap<>();
-    private Map<String, Integer> result = new LinkedHashMap<>();
+    private Map<String, Integer> resultCount = new LinkedHashMap<>();
 
     public void parseMethod(String string) throws IOException {
         try {
@@ -40,8 +40,7 @@ public class ParserNew {
 
 
     public void parseSort(Map<String, Integer> hashMap) {
-       // Map<String, Integer> result = new LinkedHashMap<>();
-        result.entrySet().stream()
+            resultCount.entrySet().stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).limit(2)
                 .forEach(s->System.out.println("IP адрес:\t"+s.getKey() + "\tКоличество обращений:\t" +  s.getValue()));
                 }
